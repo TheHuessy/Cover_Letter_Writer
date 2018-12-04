@@ -1,0 +1,120 @@
+---
+title: ""
+author: ""
+date: ""
+header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyfoot[CO,CE]{This cover letter was generated using a Shiny App I wrote that creates cover letters using RMarkdown. Think of what I could create if I worked for you!}
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r Address Line, warning=FALSE, results='asis'}
+#Key is to have it "asis" in the results part up there!
+library(readr)
+#load the address lines from the shiny output
+Ad1 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Add1.txt")
+Ad2 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Add2.txt")
+Ad3 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Add3.txt")
+Ad4 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Add4.txt")
+
+adeval <-paste(
+  if (nchar(Ad1) > 0){
+    Ad1
+  } else{
+    NULL
+  },
+    if (nchar(Ad2) > 0){
+    Ad2
+  } else{
+    NULL
+  },
+    if (nchar(Ad3) > 0){
+    Ad3
+  } else{
+    NULL
+  },
+    if (nchar(Ad4) > 0){
+    Ad4
+  } else{
+    NULL
+  },
+  sep = "\n"
+)
+
+
+#This takes the output code from adeval and removes any blank breaks, or lines that have two "\n"s, which out optional ad line 3 would if it is left blank
+adedit <- gsub("\n\n", " \r", adeval)
+cat(adedit)
+
+```
+
+##### 
+
+```{r Date Line, results='asis', warning=FALSE}
+#Key is to have it "asis" in the results part up there!
+dt <- Sys.Date()
+dtf <- format(dt, 
+              "%B %d, %Y")
+cat(dtf)
+```
+
+
+```{r Greeting, results='asis', warning=FALSE}
+
+cat("Dear Hiring Committee,")
+
+```
+
+
+```{r Para 1, results='asis', warning=FALSE}
+p1 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Par1.txt")
+cat(p1)
+```
+
+```{r Para 2, results='asis', warning=FALSE}
+p2 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Par2.txt")
+cat(p2)
+```
+
+
+
+```{r Para 3, results='asis', warning=FALSE}
+p3 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Par3.txt")
+cat(p3)
+```
+
+
+```{r Para 4, results='asis', warning=FALSE}
+
+p4 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Par4.txt")
+cat(p4)
+```
+
+```{r Salutation, results='asis', warning=FALSE}
+
+cat("I look forward to hearing from you at your convenience. Thank you for your consideration.")
+
+```
+
+
+```{r Sincerely, results='asis', warning=FALSE}
+
+cat("Sincerely,")
+
+```
+
+ 
+  
+ 
+```{r Name, results='asis', warning=FALSE}
+
+cat("James Huessy")
+
+```
