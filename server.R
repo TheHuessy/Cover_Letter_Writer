@@ -8,23 +8,23 @@ shinyServer(function(input, output, session) {
   #Paragraph 1
   P1.0 <- "I am seeking employment at"
   #Then the company()
-  P1.1 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/www/P1.1.txt")
+  P1.1 <- read_file("www/P1.1.txt")
   #Then company() again
-  P1.2 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/www/P1.2.txt")
+  P1.2 <- read_file("www/P1.2.txt")
   
   
   #Paragraph 2
-  P2.1 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/www/P2.1.txt")
+  P2.1 <- read_file("www/P2.1.txt")
   #Then Position()
-  P2.2 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/www/P2.2.txt")
+  P2.2 <- read_file("www/P2.2.txt")
   
   #Paragraph 3
-  P3 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/www/P3.txt")
+  P3 <- read_file("www/P3.txt")
   
   #Paragraph 4
-  P4.1 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/www/P4.1.txt")
+  P4.1 <- read_file("www/P4.1.txt")
   #Then company()
-  P4.2 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/www/P4.2.txt")
+  P4.2 <- read_file("www/P4.2.txt")
   
   output$Sidebar <- renderUI({
     if (input$Tabs == "Cover Letter"){
@@ -234,41 +234,41 @@ fname <- reactive({
 })
 observeEvent(input$knit, {
   #save all inputs
-  write(adedit(), file = "C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/AddressFull.txt")
-  write(ad1(), file = "C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Add1.txt")
-  write(ad2(), file = "C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Add2.txt")
-  write(ad3(), file = "C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Add3.txt")
-  write(ad4(), file = "C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Add4.txt")
-  write(company(), file = "C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/CompName.txt")
-  write(Position(), file = "C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/PosName.txt")
-  write(DiviLoc(), file = "C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/DivisionLocation.txt")
-  write(Par1(), file = "C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Par1.txt")
-  write(Par2(), file = "C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Par2.txt")
-  write(Par3(), file = "C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Par3.txt")
-  write(Par4(), file = "C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Par4.txt")
+  write(adedit(), file = "www/Cover Letters/Markdown/InputsDrop/AddressFull.txt")
+  write(ad1(), file = "www/Cover Letters/Markdown/InputsDrop/Add1.txt")
+  write(ad2(), file = "www/Cover Letters/Markdown/InputsDrop/Add2.txt")
+  write(ad3(), file = "www/Cover Letters/Markdown/InputsDrop/Add3.txt")
+  write(ad4(), file = "www/Cover Letters/Markdown/InputsDrop/Add4.txt")
+  write(company(), file = "www/Cover Letters/Markdown/InputsDrop/CompName.txt")
+  write(Position(), file = "www/Cover Letters/Markdown/InputsDrop/PosName.txt")
+  write(DiviLoc(), file = "www/Cover Letters/Markdown/InputsDrop/DivisionLocation.txt")
+  write(Par1(), file = "www/Cover Letters/Markdown/InputsDrop/Par1.txt")
+  write(Par2(), file = "www/Cover Letters/Markdown/InputsDrop/Par2.txt")
+  write(Par3(), file = "www/Cover Letters/Markdown/InputsDrop/Par3.txt")
+  write(Par4(), file = "www/Cover Letters/Markdown/InputsDrop/Par4.txt")
   
   
   #Knit Markdown from saved inputs to the desired local Spot
-  render(input = "C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/www/CLBLANKFILL.Rmd", 
+  render(input = "www/CLBLANKFILL.Rmd", 
          output_format = "pdf_document",
          #The location that you ultimately want the PDF to be saved to
-         output_dir = "C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Sent/AutoOutputs",
+         output_dir = "www/Cover Letters/Sent/AutoOutputs",
          output_file = fname(),
          quiet = TRUE)
   
   #Save a version that is just the most recent so that it can be easily viewed in the App
-  render(input = "C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/www/CLBLANKFILL.Rmd", 
+  render(input = "www/CLBLANKFILL.Rmd", 
          output_format = "pdf_document",
          #you need to make sure that you have a "www" folder in the folder that this app is located in. Put the pdf you want to view there
-         output_dir = "C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/www",
+         output_dir = "www",
          output_file = "Last.pdf",
          quiet = TRUE)
   #Generate the in-page view from the "Last" letter generated
   output$CoverLetterView <- renderUI({
     my_test <- tags$iframe(height = 600, width = "100%", src="Last.pdf")
-    #return({my_test})
-    print(my_test)
-    my_test
+    return({my_test})
+    #print(my_test)
+    #my_test
     
   })
   updateTabsetPanel(session, "TabDeep1",

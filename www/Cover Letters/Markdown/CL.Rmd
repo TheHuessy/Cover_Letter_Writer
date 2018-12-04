@@ -1,0 +1,164 @@
+---
+title: ""
+author: ""
+date: ""
+header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyfoot[CO,CE]{This cover letter was generated using a Shiny App I wrote that creates cover letters using RMarkdown. Think of what I could create if I worked for you!}
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r Address Line, warning=FALSE, results='asis'}
+#Key is to have it "asis" in the results part up there!
+library(readr)
+#load the address lines from the shiny output
+Ad1 <- read_file("D:/Users/James/Documents/Jobs/Cover Letters/Markdown/InputsDrop/Add1.txt")
+Ad2 <- read_file("D:/Users/James/Documents/Jobs/Cover Letters/Markdown/InputsDrop/Add2.txt")
+Ad3 <- read_file("D:/Users/James/Documents/Jobs/Cover Letters/Markdown/InputsDrop/Add3.txt")
+Ad4 <- read_file("D:/Users/James/Documents/Jobs/Cover Letters/Markdown/InputsDrop/Add4.txt")
+
+adeval <-paste(
+  if (nchar(Ad1) > 0){
+    Ad1
+  } else{
+    NULL
+  },
+    if (nchar(Ad2) > 0){
+    Ad2
+  } else{
+    NULL
+  },
+    if (nchar(Ad3) > 0){
+    Ad3
+  } else{
+    NULL
+  },
+    if (nchar(Ad4) > 0){
+    Ad4
+  } else{
+    NULL
+  },
+  sep = "\n"
+)
+
+
+#This takes the output code from adeval and removes any blank breaks, or lines that have two "\n"s, which out optional ad line 3 would if it is left blank
+adedit <- gsub("\n\n", " \r", adeval)
+cat(adedit)
+
+```
+
+##### 
+
+```{r Date Line, results='asis', warning=FALSE}
+#Key is to have it "asis" in the results part up there!
+dt <- Sys.Date()
+dtf <- format(dt, 
+              "%B %d, %Y")
+cat(dtf)
+```
+
+
+```{r Greeting, results='asis', warning=FALSE}
+
+cat("Dear Hiring Committee,")
+
+```
+
+
+```{r Para 1, results='asis', warning=FALSE}
+comp <- read_file("D:/Users/James/Documents/Jobs/Cover Letters/Markdown/InputsDrop/CompName.txt")
+comp <- gsub("\r\n", "", comp)
+pa <- "I am seeking employment at "
+#Then Company/Division
+pb <- " because I am looking to advance my career in data analysis and lend my skills and talents to one of the most prolific, data oriented companies in the world." #<-- This is going to be the place where you want to put the write in option for what the last sentence there
+pc <- " I would like to hone my skills in research, data analysis, programming, and statistical writing while exploring other applications of big data outside of the field of public policy. Working at "
+#Then Company/Division
+pd <- " would give me all of these opportunities and enable me to continue my career in data science."
+
+#putting it all together
+
+p1 <- paste(pa, comp, pb, pc, comp, pd, sep = "")
+
+
+cat(p1)
+```
+
+```{r Para 2, results='asis', warning=FALSE}
+pos <- read_file("D:/Users/James/Documents/Jobs/Cover Letters/Markdown/InputsDrop/PosName.txt")
+pos <- gsub("\r\n", "", pos)
+
+div <- read_file("D:/Users/James/Documents/Jobs/Cover Letters/Markdown/InputsDrop/DivisionLocation.txt")
+div <- gsub("\r\n", "", div)
+
+ppa <- "I am applying for the "
+
+#POSITION
+
+ppb <- " position in "
+
+#DIVLOCATION
+
+ppc <- " because I feel that my background and skillsets would make me an asset to the team. At the School of Public Policy and Urban Affairs, I worked with many principal investigators on a myriad of grand funded projects covering almost all aspects of public policy. I was hired initially as an undergrad, for a summer job, and my quantitative and technical talents were quickly recognized and I found myself being pulled onto more and more projects to provide any and all data manipulation and analysis."
+
+#putting it all together
+
+p2 <- paste(ppa, pos, ppb, div, ppc, sep = "")
+
+
+cat(p2)
+```
+
+
+
+```{r Para 3, results='asis', warning=FALSE}
+p3 <- "I am very well versed in R, which began as an intro class when I started my Master's and is now an integral part of my everyday work. Where some wanted to keep using excel or SPSS to run analysis, I saw the opportunity to use R and develop not only quality statistical analysis, but also better visual representations of the data from simple ggplot outputs to shiny apps written to showcase geographical differences in data at different levels. Due in part to my policy background and skills in R, I was hired by the Boston Area Research Initiative (BARI) to head up housing and transportation data projects. Since January 2018, I have built an automated web scraper that collects, stores, and cleans Craigslist data, and most importantly I built, set up, and maintain a local storage server for BARI which is now used to back up all big data files and host local geocoding software."
+
+cat(p3)
+```
+
+
+```{r Para 4, results='asis', warning=FALSE}
+
+ppppa <- "Now, as I near the end of my graduate studies, I feel that I have outgrown my former roles and want to seek a new challenge, working with even larger datasets, developing insights that can further the mission of the company. I want to brave the new frontier in my budding data science career and working at "
+
+#Company Name
+
+ppppb <- " would allow me to do so. I take genuine joy in researching, cleaning data, analyzing the datasets, and reporting the story within the data."
+
+#putting it all together
+
+p4 <- paste(ppppa, comp, ppppb, sep = "")
+
+
+cat(p4)
+```
+
+```{r Salutation, results='asis', warning=FALSE}
+
+cat("I look forward to hearing from you at your convenience. Thank you for your consideration.")
+
+```
+
+
+```{r Sincerely, results='asis', warning=FALSE}
+
+cat("Sincerely,")
+
+```
+
+ 
+  
+ 
+```{r Name, results='asis', warning=FALSE}
+
+cat("James Huessy")
+
+```

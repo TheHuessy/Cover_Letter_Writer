@@ -1,0 +1,150 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{}
+    \pretitle{\vspace{\droptitle}}
+  \posttitle{}
+    \author{}
+    \preauthor{}\postauthor{}
+    \date{}
+    \predate{}\postdate{}
+  
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot[CO,CE]{This cover letter was generated using a Shiny App I wrote that creates cover letters using RMarkdown. Think of what I could create if I worked for you!}
+
+\begin{document}
+
+City of Boston
+
+1 City Hall Plaza
+
+Boston, MA 02115
+
+\hypertarget{section}{%
+\subparagraph{}\label{section}}
+
+December 04, 2018
+
+Dear Hiring Committee,
+
+I am seeking employment at City of Boston because I am looking to
+advance my career in data analysis and lend my skills and talents to a
+focused investment company. I would like to hone my skills in research,
+data analysis, programming, and statistical writing while exploring
+other applications of big data outside of the field of public policy and
+gain experience in the financial sector. Working at City of Boston would
+give me all of these opportunities and enable me to continue my career
+in data science.
+
+I am applying for the CIO position because I feel that my background and
+skillsets would make me an asset to the team. At the School of Public
+Policy and Urban Affairs, I worked with many principal investigators on
+a myriad of grand funded projects covering almost all aspects of public
+policy. I was hired initially as an undergrad, for a summer job, and my
+quantitative and technical talents were quickly recognized and I found
+myself being pulled onto more and more projects to provide any and all
+data manipulation and analysis. AND I'M THE COOLEST!
+
+I am very well versed in R, which began as an intro class when I started
+my Masters and is now an integral part of my everyday work. Where some
+wanted to keep using excel or SPSS to run analysis, I saw the
+opportunity to use R and develop not only quality statistical analysis,
+but also better visual representations of the data from simple ggplot
+outputs to shiny apps written to showcase geographical differences in
+data at different levels. Due in part to my policy background and skills
+in R, I was hired by the Boston Area Research Initiative (BARI) to head
+up housing and transportation data projects. Since January 2018, I have
+built an automated web scraper that collects, stores, and cleans
+Craigslist data, and most importantly I built, set up, and maintain a
+local storage server for BARI which is now used to back up all big data
+files and host local geocoding software.
+
+Now, as I near the end of my graduate studies, I feel that I have
+outgrown my former roles and want to seek a new challenge, working with
+even larger datasets, developing insights that can further the mission
+of the company. I want to brave the new frontier in my budding data
+science career and working at City of Boston would allow me to do so. I
+take genuine joy in researching, cleaning data, analyzing the datasets,
+and reporting the story within the data.
+
+I look forward to hearing from you at your convenience. Thank you for
+your consideration.
+
+Sincerely,
+
+James Huessy
+
+
+\end{document}

@@ -19,10 +19,10 @@ knitr::opts_chunk$set(echo = FALSE)
 #Key is to have it "asis" in the results part up there!
 library(readr)
 #load the address lines from the shiny output
-Ad1 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Add1.txt")
-Ad2 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Add2.txt")
-Ad3 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Add3.txt")
-Ad4 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Add4.txt")
+Ad1 <- read_file("Cover Letters/Markdown/InputsDrop/Add1.txt")
+Ad2 <- read_file("Cover Letters/Markdown/InputsDrop/Add2.txt")
+Ad3 <- read_file("Cover Letters/Markdown/InputsDrop/Add3.txt")
+Ad4 <- read_file("Cover Letters/Markdown/InputsDrop/Add4.txt")
 
 adeval <-paste(
   if (nchar(Ad1) > 0){
@@ -74,26 +74,26 @@ cat("Dear Hiring Committee,")
 
 
 ```{r Para 1, results='asis', warning=FALSE}
-p1 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Par1.txt")
+p1 <- read_file("Cover Letters/Markdown/InputsDrop/Par1.txt")
 cat(p1)
 ```
 
 ```{r Para 2, results='asis', warning=FALSE}
-p2 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Par2.txt")
+p2 <- read_file("Cover Letters/Markdown/InputsDrop/Par2.txt")
 cat(p2)
 ```
 
 
 
 ```{r Para 3, results='asis', warning=FALSE}
-p3 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Par3.txt")
+p3 <- read_file("Cover Letters/Markdown/InputsDrop/Par3.txt")
 cat(p3)
 ```
 
 
 ```{r Para 4, results='asis', warning=FALSE}
 
-p4 <- read_file("C:/Users/Jhuessy/Documents/Github Projects/CoverLetterGenerator/Cover Letters/Markdown/InputsDrop/Par4.txt")
+p4 <- read_file("Cover Letters/Markdown/InputsDrop/Par4.txt")
 cat(p4)
 ```
 

@@ -1,0 +1,110 @@
+---
+title: ""
+author: ""
+date: ""
+output:
+  pdf_document: default
+  html_document: default
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r Address Line, warning=FALSE, results='asis'}
+#Key is to have it "asis" in the results part up there!
+library(readr)
+#load the address lines from the shiny output
+Ad1 <- read_file("D:/Users/James/Documents/Jobs/Cover Letters/Markdown/InputsDrop/Add1.txt")
+Ad2 <- read_file("D:/Users/James/Documents/Jobs/Cover Letters/Markdown/InputsDrop/Add2.txt")
+Ad3 <- read_file("D:/Users/James/Documents/Jobs/Cover Letters/Markdown/InputsDrop/Add3.txt")
+Ad4 <- read_file("D:/Users/James/Documents/Jobs/Cover Letters/Markdown/InputsDrop/Add4.txt")
+
+adeval <-paste(
+  if (nchar(Ad1) > 0){
+    Ad1
+  } else{
+    NULL
+  },
+    if (nchar(Ad2) > 0){
+    Ad2
+  } else{
+    NULL
+  },
+    if (nchar(Ad3) > 0){
+    Ad3
+  } else{
+    NULL
+  },
+    if (nchar(Ad4) > 0){
+    Ad1
+  } else{
+    NULL
+  },
+  sep = "\n"
+)
+
+
+#This takes the output code from adeval and removes any blank breaks, or lines that have two "\n"s, which out optional ad line 3 would if it is left blank
+adedit <- gsub("\n\n", " \r", adeval)
+cat(adedit)
+
+```
+
+##### 
+
+```{r Date Line, results='asis', warning=FALSE}
+#Key is to have it "asis" in the results part up there!
+dt <- Sys.Date()
+dtf <- format(dt, 
+              "%B %d, %Y")
+cat(dtf)
+```
+
+#Dear Hiring Committee
+
+#P1
+
+#P2
+
+#P3
+
+#P4
+
+
+
+
+
+```{r, results='asis', warning=FALSE}
+#Key is to have it "asis" in the results part up there!
+library(knitr)
+
+test_run <- "First part of text which is just a stock thing that I put in that's static"
+
+cat(test_run)
+```
+
+```{r, results='asis', warning=FALSE, tidy=TRUE}
+library(readr)
+Ad <- read_file("D:/Users/James/Documents/Jobs/Cover Letters/Markdown/InputsDrop/Address.txt")
+Ad2 <- as.character(strsplit(Ad, split = "\r\n"))
+Ad2 <- gsub("c\\(", "", Ad2)
+Ad2 <- gsub("\\)", "", Ad2)
+Ad2 <- gsub(",", " \n", Ad2)
+Ad2 <- gsub('"', '', Ad2)
+writeLines(Ad2)
+
+
+#pretnd that test_run is the final collection of all stock strings and inputs ready to be knitted
+
+
+
+#try saving text as an R markdown file.
+
+
+
+#This might help: http://brooksandrew.github.io/simpleblog/articles/render-reports-directly-from-R-scripts/
+
+#Suggests that there is a formatting option in a rugular R script which can, when asked to render in Markdown, produce an Rmarkdown file, albeit HTML, from the content of the R script.
+```
